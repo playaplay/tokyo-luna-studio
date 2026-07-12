@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <script>
+    if (location.hostname === 'art-luna-studio.pages.dev') {
+      location.replace(
+        'https://luna-art-studio.jp' +
+          location.pathname +
+          location.search +
+          location.hash,
+      );
+    }
+  </script>
+  <head>
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-4KSC8JYXN7"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+
+      gtag('config', 'G-4KSC8JYXN7');
+    </script>
+    <script src="./public/script.js"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Tokyo Luna Studio — 东京荒川区西日暮里的小型绘画工作室，提供水彩、素描、丙烯、金缮课程。每次仅接待 1～3 位学员，完全预约制。"
+    />
+    <title>Tokyo Luna Studio | 东京绘画工作室</title>
+    <link rel="icon" href="img/title.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Serif+SC:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
