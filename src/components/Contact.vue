@@ -146,13 +146,15 @@ onMounted(() => {
 
         formSuccess.value = true;
 
+        alert('预约成功！');
+
         setTimeout(() => {
           formSuccess.value = false;
 
           formRef.value.reset();
 
           isSubmitting.value = false;
-        }, 6000);
+        }, 10000);
       },
     );
   }
@@ -365,7 +367,9 @@ onMounted(() => {
             class="btn btn-primary btn-full"
             :disabled="isSubmitting"
           >
-            {{ isSubmitting ? '提交中...' : '提交预约' }}
+            {{
+              formSuccess ? '已提交' : isSubmitting ? '提交中...' : '提交预约'
+            }}
           </button>
           <p class="form-success" id="form-success" v-show="formSuccess">
             感謝您的預約！我們將在 24 小时内與您聯繫確認。
