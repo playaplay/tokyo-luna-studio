@@ -52,7 +52,12 @@ const handleDate = () => {
 };
 
 // 提交前处理
-const handleSubmit = () => {
+const handleSubmit = (e) => {
+  if (isSubmitting.value) {
+    e.preventDefault();
+    return;
+  }
+
   isSubmitting.value = true;
 
   handleDate();
@@ -355,8 +360,12 @@ onMounted(() => {
             ></textarea>
           </div>
 
-          <button type="submit" class="btn btn-primary btn-full">
-            提交預約
+          <button
+            type="submit"
+            class="btn btn-primary btn-full"
+            :disabled="isSubmitting"
+          >
+            {{ isSubmitting ? '提交中...' : '提交预约' }}
           </button>
           <p class="form-success" id="form-success" v-show="formSuccess">
             感謝您的預約！我們將在 24 小时内與您聯繫確認。
