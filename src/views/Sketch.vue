@@ -1,4 +1,5 @@
 <script setup>
+import LightboxGallery from '../components/LightboxGallery.vue';
 const galleryImages = [
   '/img/s1.jpg',
   '/img/s2.jpg',
@@ -127,22 +128,17 @@ const galleryImages = [
     </div>
   </section>
 
-  <section class="section gallery" id="gallery">
+  <section class="section gallery">
     <div class="container">
       <div class="section-header">
-        <span class="section-tag">Gallery</span>
+        <span class="section-tag"> Gallery </span>
+
         <h2 class="section-title">素描作品集</h2>
+
         <p class="section-desc">观察、造型与光影练习成果。</p>
       </div>
-      <div class="gallery-grid">
-        <figure
-          class="gallery-item"
-          v-for="(image, index) in galleryImages"
-          :key="image"
-        >
-          <img :src="image" :alt="`素描作品 ${index + 1}`" loading="lazy" />
-        </figure>
-      </div>
+
+      <LightboxGallery :images="galleryImages" />
     </div>
   </section>
 </template>

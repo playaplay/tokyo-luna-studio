@@ -108,11 +108,12 @@ observer = new IntersectionObserver(
 <template>
   <header class="header" :class="{ scrolled }">
     <nav class="nav container">
-      <img
-        :src="scrolled ? '/img/logo-light.png' : '/img/logo-dark.png'"
-        alt="Tokyo Luna Studio"
-        class="logo-img"
-      />
+      <router-link to="/" class="logo">
+        <img
+          :src="scrolled ? '/img/logo-light.png' : '/img/logo-dark.png'"
+          alt="Tokyo Luna Studio"
+          class="logo-img"
+      /></router-link>
 
       <button
         class="nav-toggle"
