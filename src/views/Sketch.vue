@@ -1,5 +1,13 @@
 <script setup>
-const galleryImages = ['/img/s1.jpg'];
+const galleryImages = [
+  '/img/s1.jpg',
+  '/img/s2.jpg',
+  '/img/s3.jpg',
+  '/img/s4.jpg',
+  '/img/s5.jpg',
+  '/img/s6.jpg',
+  '/img/s7.jpg',
+];
 </script>
 <template>
   <section class="sub-hero" style="background-image: url('/img/sketchTop.jpg')">

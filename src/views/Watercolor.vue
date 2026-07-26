@@ -12,6 +12,7 @@ const galleryImages = [
   '/img/c10.jpg',
   '/img/c11.jpg',
   '/img/c12.jpg',
+  '/img/c13.jpg',
 ];
 </script>
 <template>
