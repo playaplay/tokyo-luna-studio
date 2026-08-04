@@ -3,6 +3,7 @@ import { ref, onMounted } from 'vue';
 import { watch } from 'vue';
 import flatpickr from 'flatpickr';
 import 'flatpickr/dist/flatpickr.min.css';
+import availableDateList from '../assets/dates.json';
 
 // 表单数据
 const contactType = ref('微信');
@@ -68,6 +69,7 @@ const handleSubmit = (e) => {
 };
 
 // 初始化日期
+// 初始化日期
 onMounted(() => {
   const now = new Date();
 
@@ -82,7 +84,7 @@ onMounted(() => {
   }
 
   const fp = flatpickr('#web-date', {
-    minDate: minDate,
+    minDate,
 
     dateFormat: 'Y-m-d',
 
@@ -102,28 +104,19 @@ onMounted(() => {
     },
   });
 
-  // 获取Google Sheet日期
+  try {
+    availableDates.value = availableDateList;
 
-  fetch(
-    'https://script.google.com/macros/s/AKfycbx8j4mPDokVN_EAnzE44CBn56nx61axK73kQA1uqLM5ZgSIGXwdrNnOTLPcP1LbSxHq/exec',
-  )
-    .then((res) => res.json())
-    .then((data) => {
-      availableDates.value = data;
+    fp.redraw();
 
-      fp.redraw();
+    datePlaceholder.value = '请选择日期';
+  } catch (err) {
+    console.error(err);
 
-      dateLoading.value = false;
-
-      datePlaceholder.value = '请选择日期';
-    })
-    .catch((err) => {
-      console.error(err);
-
-      dateLoading.value = false;
-
-      datePlaceholder.value = '日期加载失败';
-    });
+    datePlaceholder.value = '日期加载失败';
+  } finally {
+    dateLoading.value = false;
+  }
 });
 
 watch(time, (newTime) => {
