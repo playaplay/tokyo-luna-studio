@@ -7,6 +7,8 @@ const galleryImages = [
   '/img/a4.jpg',
   '/img/a5.jpg',
   '/img/a6.jpg',
+  '/img/a7.jpg',
+  '/img/a8.jpg',
 ];
 </script>
 <template>
